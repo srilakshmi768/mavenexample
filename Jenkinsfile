@@ -6,15 +6,17 @@ pipeline{
     stages{
         stage('git'){
             steps{
-            git url:'https://github.com/srilakshmi768/mavenexample.git'
+            git url:'https://github.com/srilakshmi768/mavenexample.git' 
         }
     }
     stage('build'){
         steps{
+            
             withSonarQubeEnv('SONAR_9.2.1') {
         sh '/usr/local/apache-maven-3.8.5/bin/mvn clean package'
         }
         }
     }
 }
+
 }
