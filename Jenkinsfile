@@ -11,7 +11,9 @@ pipeline{
     }
     stage('build'){
         steps{
+            withSonarQubeEnv('SONAR_9.2.1') {
         sh '/usr/local/apache-maven-3.8.5/bin/mvn clean package'
+        }
         }
     }
 }
